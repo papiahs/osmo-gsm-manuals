@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-# the first argument should point at libosmocore/doc/vty/merge_doc.xsl
+# the first argument should point at ../merge_doc.xsl
 MERGE_DOC="$1"
 shift
 

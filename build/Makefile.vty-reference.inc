@@ -25,18 +25,20 @@ DOCBOOKS = $(VTY_REFERENCE)
 DOCBOOKS_DEPS = generated/docbook_vty.xml
 include $(TOPDIR)/build/Makefile.docbook.inc
 
-LIBOSMO_DIR ?= ~/source/gsm/libosmocore
-MERGE_DOC = $(shell realpath $(LIBOSMO_DIR)/doc/vty/merge_doc.xsl)
-
 CLEAN_FILES += generated
 
 generated/docbook_vty.xml: \
+			   common \
 			   vty/*xml \
 			   $(TOPDIR)/common/vty_additions.xml \
 			   $(TOPDIR)/common/chapters/vty.xml \
 			   $(TOPDIR)/vty_reference.xsl
-	$(TOPDIR)/build/vty_reference_combine.sh "$(MERGE_DOC)" \
+	$(TOPDIR)/build/vty_reference_combine.sh $(TOPDIR)/merge_doc.xsl \
 		$(TOPDIR)/common/vty_additions.xml \
 		vty/*additions*.xml
 	xsltproc $(TOPDIR)/vty_reference.xsl generated/combined.xml \
 		> generated/docbook_vty.xml
+
+# Make "common" a relative path to build osmoyada-vty-reference.xml
+common: $(TOPDIR)/common
+	ln -s "$(TOPDIR)/common" ./common
