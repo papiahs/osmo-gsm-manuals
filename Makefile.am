@@ -37,6 +37,10 @@ install-data-hook:
 BUILT_SOURCES = $(top_srcdir)/.version
 EXTRA_DIST = git-version-gen .version
 
+uninstall-local:
+	rm -rv "$(prefix)/share/osmo-gsm-manuals" \
+		"$(prefix)/bin/osmo-gsm-manuals-check-depends"
+
 #DISTCHECK_CONFIGURE_FLAGS = \
 #	--with-systemdsystemunitdir=$$dc_install_base/$(systemdsystemunitdir)
 
