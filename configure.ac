@@ -21,4 +21,5 @@ PKG_PROG_PKG_CONFIG([0.20])
 
 AC_OUTPUT(
     osmo-gsm-manuals.pc
-    Makefile)
+    Makefile
+    tests/Makefile)
