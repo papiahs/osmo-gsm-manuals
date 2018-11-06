@@ -6,8 +6,7 @@ AC_INIT([osmo-gsm-manuals],
 dnl *This* is the root dir, even if an install-sh exists in ../ or ../../
 AC_CONFIG_AUX_DIR([.])
 
-# FIXME: what's dist-bzip2 for?
-AM_INIT_AUTOMAKE([dist-bzip2])
+AM_INIT_AUTOMAKE([foreign dist-bzip2 1.6])
 # AC_CONFIG_TESTDIR(tests)
 
 # dnl kernel style compile messages
