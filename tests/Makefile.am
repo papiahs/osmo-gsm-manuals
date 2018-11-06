@@ -1,11 +1,10 @@
-all: include-everything.pdf
+TOPDIR = ..
 
-include-everything.pdf: include-everything.adoc
+ASCIIDOC = test-usermanual.adoc
+ASCIIDOC_DEPS = chapters/*.adoc
+include $(TOPDIR)/build/Makefile.asciidoc.inc
 
-include-everything.adoc: ../common/chapters/* ../common/*.xml check-depends
+VTY_REFERENCE = test-vty-reference.xml
+include $(TOPDIR)/build/Makefile.vty-reference.inc
 
-
-check-depends:
-	../check-depends.sh
-
-.PHONY: check-depends
+include $(TOPDIR)/build/Makefile.common.inc
