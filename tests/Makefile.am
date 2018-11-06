@@ -18,7 +18,6 @@ $(ASCIIDOC): ../common/chapters/*.adoc
 	echo "====================" >> $@
 	echo "Oliver Smith <osmith@sysmocom.de>" >> $@
 	echo "" >> $@
-	cd ../common/;
-		for i in chapters/*.adoc; do \
-			echo "include::{common}/$$i[]" >> $@; \
-		done;
+	for i in ../common/chapters/*.adoc; do \
+		echo "include::{common}/chapters/$$(basename $$i)[]" >> $@; \
+	done;

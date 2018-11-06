@@ -36,3 +36,6 @@ m4/*.m4
 *.pc
 Makefile.in
 Makefile
+
+# test files
+test-usermanual.adoc
