@@ -39,6 +39,6 @@ generated/docbook_vty.xml: \
 	xsltproc $(TOPDIR)/vty_reference.xsl generated/combined.xml \
 		> generated/docbook_vty.xml
 
-# Make "common" a relative path to build osmoyada-vty-reference.xml
+# Make "common" a relative path to build *-vty-reference.xml
 common: $(TOPDIR)/common
 	ln -s "$(TOPDIR)/common" ./common
