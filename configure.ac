@@ -19,7 +19,7 @@ if test "x$PKG_CONFIG_INSTALLED" = "xno"; then
 fi
 PKG_PROG_PKG_CONFIG([0.20])
 
-if ! ./check-depends.sh
+if ! $srcdir/check-depends.sh
 then
 	AC_MSG_ERROR("missing dependencies!")
 fi
