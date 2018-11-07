@@ -6,7 +6,7 @@ AC_INIT([osmo-gsm-manuals],
 dnl *This* is the root dir, even if an install-sh exists in ../ or ../../
 AC_CONFIG_AUX_DIR([.])
 
-AM_INIT_AUTOMAKE([foreign dist-bzip2 1.6])
+AM_INIT_AUTOMAKE([foreign dist-bzip2 1.6 subdir-objects])
 
 dnl checks for programs
 AC_PROG_INSTALL
