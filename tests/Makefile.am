@@ -1,7 +1,7 @@
 TOPDIR = ..
 
 ASCIIDOC = test-usermanual.adoc
-ASCIIDOC_DEPS = chapters/*.adoc
+ASCIIDOC_DEPS =
 include $(TOPDIR)/build/Makefile.asciidoc.inc
 
 VTY_REFERENCE = test-vty-reference.xml
