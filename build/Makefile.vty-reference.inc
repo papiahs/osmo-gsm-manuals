@@ -35,6 +35,7 @@ generated/docbook_vty.xml: \
 			   $(TOPDIR)/vty_reference.xsl
 	mkdir -p generated
 	$(TOPDIR)/build/vty_reference_combine.sh $(TOPDIR)/merge_doc.xsl \
+		$(srcdir)/vty/*reference.xml \
 		$(TOPDIR)/common/vty_additions.xml \
 		$(srcdir)/vty/*additions*.xml
 	xsltproc $(TOPDIR)/vty_reference.xsl generated/combined.xml \
