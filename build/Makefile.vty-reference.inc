@@ -29,12 +29,13 @@ CLEAN_FILES += generated
 
 generated/docbook_vty.xml: \
 			   common \
-			   vty/*xml \
+			   $(srcdir)/vty/*xml \
 			   $(TOPDIR)/common/vty_additions.xml \
 			   $(TOPDIR)/common/chapters/vty.xml \
 			   $(TOPDIR)/vty_reference.xsl
+	mkdir -p generated
 	$(TOPDIR)/build/vty_reference_combine.sh $(TOPDIR)/merge_doc.xsl \
 		$(TOPDIR)/common/vty_additions.xml \
-		vty/*additions*.xml
+		$(srcdir)/vty/*additions*.xml
 	xsltproc $(TOPDIR)/vty_reference.xsl generated/combined.xml \
 		> generated/docbook_vty.xml
