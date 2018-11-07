@@ -39,3 +39,5 @@ Makefile
 
 # test files
 test-usermanual.adoc
+test-usermanual.xml
+tests/common

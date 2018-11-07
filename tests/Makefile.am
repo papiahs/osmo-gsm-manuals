@@ -15,7 +15,7 @@ $(ASCIIDOC): ../common/chapters/*.adoc
 	echo ":program-name: Test" >> $@
 	echo "" >> $@
 	echo "Osmo GSM Manuals Shared Content Test" >> $@
-	echo "====================" >> $@
+	echo "====================================" >> $@
 	echo "Oliver Smith <osmith@sysmocom.de>" >> $@
 	echo "" >> $@
 	for i in ../common/chapters/*.adoc; do \
