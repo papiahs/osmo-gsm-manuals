@@ -25,7 +25,7 @@ DOCBOOKS = $(VTY_REFERENCE)
 DOCBOOKS_DEPS = generated/docbook_vty.xml
 include $(TOPDIR)/build/Makefile.docbook.inc
 
-CLEAN_FILES += generated common
+CLEAN_FILES += generated
 
 generated/docbook_vty.xml: \
 			   common \
@@ -38,7 +38,3 @@ generated/docbook_vty.xml: \
 		vty/*additions*.xml
 	xsltproc $(TOPDIR)/vty_reference.xsl generated/combined.xml \
 		> generated/docbook_vty.xml
-
-# Make "common" a relative path to build *-vty-reference.xml
-common: $(TOPDIR)/common
-	ln -s "$(TOPDIR)/common" ./common

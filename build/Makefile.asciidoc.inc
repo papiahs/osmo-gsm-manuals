@@ -51,6 +51,7 @@ A2X_OPTS := -L --asciidoc-opts="$(ASCIIDOC_OPTS)" --dblatex-opts="$(DBLATEX_OPTS
 all: $(ASCIIDOC_PDF)
 
 $(ASCIIDOC_PDF): %.pdf: %.adoc %-docinfo.xml \
+		common \
 		$(ASCIIDOC_DEPS) \
 		$(ASCIIDOCSTYLE) \
 		$(TOPDIR)/common/*/*.adoc \
