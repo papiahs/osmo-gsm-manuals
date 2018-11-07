@@ -1,9 +1,9 @@
-TOPDIR = ..
+TOPDIR = $(srcdir)/..
 
 # Generate adoc file that includes all chapters
 ASCIIDOC = test-usermanual.adoc
 ASCIIDOC_DEPS =
-$(ASCIIDOC): ../common/chapters/*.adoc
+$(ASCIIDOC): $(TOPDIR)/common/chapters/*.adoc
 	echo ":gfdl-enabled:" > $@
 	echo ":program-name: Test" >> $@
 	echo "" >> $@
@@ -11,7 +11,7 @@ $(ASCIIDOC): ../common/chapters/*.adoc
 	echo "====================================" >> $@
 	echo "Oliver Smith <osmith@sysmocom.de>" >> $@
 	echo "" >> $@
-	for i in ../common/chapters/*.adoc; do \
+	for i in $(TOPDIR)/common/chapters/*.adoc; do \
 		echo "include::{common}/chapters/$$(basename $$i)[]" >> $@; \
 	done;
 CLEAN_FILES = $(ASCIIDOC)
