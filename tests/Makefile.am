@@ -1,4 +1,4 @@
-TOPDIR = $(srcdir)/..
+TOPDIR = $(realpath $(srcdir)/..)
 
 # Generate adoc file that includes all chapters
 ASCIIDOC = test-usermanual.adoc
