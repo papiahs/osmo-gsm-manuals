@@ -25,7 +25,7 @@ DOCBOOKS = $(VTY_REFERENCE)
 DOCBOOKS_DEPS = generated/docbook_vty.xml
 include $(TOPDIR)/build/Makefile.docbook.inc
 
-CLEAN_FILES += generated
+CLEAN_FILES += generated common
 
 generated/docbook_vty.xml: \
 			   common \

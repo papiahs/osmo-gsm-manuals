@@ -1,15 +1,8 @@
 TOPDIR = ..
 
+# Generate adoc file that includes all chapters
 ASCIIDOC = test-usermanual.adoc
 ASCIIDOC_DEPS =
-include $(TOPDIR)/build/Makefile.asciidoc.inc
-
-VTY_REFERENCE = test-vty-reference.xml
-include $(TOPDIR)/build/Makefile.vty-reference.inc
-
-include $(TOPDIR)/build/Makefile.common.inc
-
-# Generate adoc file that includes all chapters
 $(ASCIIDOC): ../common/chapters/*.adoc
 	echo ":gfdl-enabled:" > $@
 	echo ":program-name: Test" >> $@
@@ -21,3 +14,10 @@ $(ASCIIDOC): ../common/chapters/*.adoc
 	for i in ../common/chapters/*.adoc; do \
 		echo "include::{common}/chapters/$$(basename $$i)[]" >> $@; \
 	done;
+CLEAN_FILES = $(ASCIIDOC)
+
+include $(TOPDIR)/build/Makefile.asciidoc.inc
+
+VTY_REFERENCE = test-vty-reference.xml
+include $(TOPDIR)/build/Makefile.vty-reference.inc
+include $(TOPDIR)/build/Makefile.common.inc
