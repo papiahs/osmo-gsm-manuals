@@ -5,6 +5,9 @@ pkgconfig_DATA = \
 BUILT_SOURCES = $(top_srcdir)/.version
 EXTRA_DIST = git-version-gen .version
 
+all:
+	$(MAKE) -C tests
+
 $(top_srcdir)/.version:
 	echo $(VERSION) > $@-t && mv $@-t $@
 dist-hook:
