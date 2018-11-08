@@ -23,8 +23,6 @@ lint = $(patsubst %.xml,%.lint,$(DOCBOOKS))
 CLEAN_FILES += $(DOCBOOKS_PDF) $(lint)
 UPLOAD_FILES += $(DOCBOOKS_PDF)
 
-all: $(DOCBOOKS_PDF)
-
 # Lint the file
 %.xml-lint: %.xml
 	xmllint --xinclude --postvalid --noout $<

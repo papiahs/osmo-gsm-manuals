@@ -18,3 +18,7 @@ clean:
 # don't accept variables in paths)
 common: $(TOPDIR)/common
 	ln -s "$(TOPDIR)/common" ./common
+
+all: $(DOCBOOKS_PDF) $(ASCIIDOC_PDF)
+
+check: all
