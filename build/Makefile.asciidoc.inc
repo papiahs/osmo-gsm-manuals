@@ -50,18 +50,23 @@ A2X_OPTS := -L --asciidoc-opts="$(ASCIIDOC_OPTS)" --dblatex-opts="$(DBLATEX_OPTS
 
 all: $(ASCIIDOC_PDF)
 
+# NOTE: a2x can't use a different output file, so we symlink the file to the
+# build folder in case of an out-of-tree build (notdir magic below)
 $(ASCIIDOC_PDF): %.pdf: %.adoc %-docinfo.xml \
 		common \
 		$(ASCIIDOC_DEPS) \
 		$(ASCIIDOCSTYLE) \
 		$(TOPDIR)/common/*/*.adoc \
 		$(TOPDIR)/common/images/*
+
+	[ -f $(notdir $<) ] || ln -s $< $(notdir $<)
+
 	@test -n "$(BUILD_RELEASE)" && echo -e "\n\n\
 	  NOTE: TO REMOVE DRAFT MODE, YOU NEED TO EDIT build/custom-dblatex.sty\n\
 	        and remove three lines starting with '% \"DRAFT\" on first page'\n" \
 	  || true
-	a2x $(A2X_OPTS) $< || (echo "ERROR: a2x failed! Running asciidoc to get verbose errors..."; \
-		asciidoc -v $(ASCIIDOC_OPTS) $<; exit 1)
+	a2x $(A2X_OPTS) $(notdir $<) || (echo "ERROR: a2x failed! Running asciidoc to get verbose errors..."; \
+		asciidoc -v $(ASCIIDOC_OPTS) $(notdir $<); exit 1)
 
 check: $(ASCIIDOC_CHECKS)
 
