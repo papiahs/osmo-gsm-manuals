@@ -14,6 +14,7 @@ upload: $(UPLOAD_FILES)
 clean:
 	-rm -rf $(CLEAN_FILES)
 
-# Make "common" a relative path (so we can use it in xml and sty files, which don't accept variables in paths)
+# Make "common" a relative path (so we can use it in xml and sty files, which
+# don't accept variables in paths)
 common: $(TOPDIR)/common
 	ln -s "$(TOPDIR)/common" ./common
