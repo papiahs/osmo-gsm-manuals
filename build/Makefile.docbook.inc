@@ -32,5 +32,4 @@ all: $(DOCBOOKS_PDF)
 # Create a PDF file and lint it before
 %.pdf: %.xml %.xml-lint $(DOCBOOKS_DEPS)
 	dblatex --xslt-opts="--path $(TOPDIR)/common/chapters:$$PWD/generated" \
-		$(dblatex_quiet) -P draft.mode=no $<
-
+		$(dblatex_quiet) -P draft.mode=no -o $@ $<
